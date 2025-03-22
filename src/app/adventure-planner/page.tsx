@@ -78,7 +78,7 @@ export default function AdventurePlanner() {
   };
 
   // Helper function to update trip details
-  const updateTripDetails = (field: keyof TripDetails, value: any) => {
+  const updateTripDetails = (field: keyof TripDetails, value: string | number | boolean) => {
     setTripDetails((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -111,7 +111,7 @@ export default function AdventurePlanner() {
         console.error('Error loading saved list:', error);
       }
     }
-  }, []);
+  }, [tripDetails]);
 
   // Function to save packing list to localStorage
   const savePackingList = () => {
@@ -1907,7 +1907,7 @@ export default function AdventurePlanner() {
                 
                 {tripDetails.hasPet && (
                   <div className="mb-6">
-                    <label className="block text-gray-700 mb-2">Pet's name:</label>
+                    <label className="block text-gray-700 mb-2">Pet&apos;s name:</label>
                     <input 
                       type="text"
                       placeholder="Sickan"
@@ -2128,10 +2128,10 @@ export default function AdventurePlanner() {
                         How to use:
                       </h4>
                       <ol className="list-decimal ml-6 text-sm space-y-1 text-gray-800">
-                        <li>Drag items from the "Unassigned" column to assign them to specific people</li>
+                        <li>Drag items from the &quot;Unassigned&quot; column to assign them to specific people</li>
                         <li>Use category filters to focus on specific types of gear</li>
-                        <li>Click "Auto-Balance" to automatically distribute gear evenly</li>
-                        <li>When finished, click "Save Distribution" to save your assignments</li>
+                        <li>Click &quot;Auto-Balance&quot; to automatically distribute gear evenly</li>
+                        <li>When finished, click &quot;Save Distribution&quot; to save your assignments</li>
                       </ol>
                     </div>
                     
@@ -2272,7 +2272,7 @@ export default function AdventurePlanner() {
                             onDrop={() => handleDrop(personIndex + 1)}
                           >
                             <div className="font-medium text-center text-blue-800 mb-3 text-base">
-                              Person {personIndex + 1}'s Gear
+                              Person {personIndex + 1}&apos;s Gear
                             </div>
                             <ul className="space-y-2 min-h-[120px]">
                               {packingList
@@ -2471,11 +2471,11 @@ export default function AdventurePlanner() {
                         <h3 className="font-semibold text-gray-800">
                           {viewMode === 'byPerson' && selectedPerson
                             ? `Person ${selectedPerson} Ready?`
-                            : 'Trail Ready?'
+                            : "Trail Ready?"
                           }
                         </h3>
                         <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-1">You've packed</span>
+                          <span className="mr-1">You&apos;ve packed</span>
                           <strong className="text-forest-green-dark">{progressStats.checked}</strong>
                           <span className="mx-1">of</span>
                           <strong>{progressStats.total}</strong>

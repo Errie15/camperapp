@@ -94,7 +94,7 @@ export const TentIcon = ({ className, size, color, weight }: IconProps) => (
   />
 );
 
-export const KnotIcon = ({ className, size, color, weight }: IconProps) => (
+export const KnotIcon = ({ className, size, color }: Omit<IconProps, 'weight'>) => (
   <Lasso
     className={className} 
     size={size || defaultProps.size}

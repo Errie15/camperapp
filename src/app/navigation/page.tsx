@@ -1,7 +1,7 @@
 'use client';
 import Navigation from "../components/Navigation";
 import { useState } from "react";
-import { MapIcon, CompassIcon } from "../components/Icons";
+import { MapIcon } from "../components/Icons";
 
 interface NavigationTechnique {
   title: string;
@@ -198,7 +198,7 @@ export default function NavigationPage() {
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Check your position regularly on the map</li>
                 <li>Note landmarks and terrain features as you pass them</li>
-                <li>Use the "handrail" technique along linear features</li>
+                <li>Use the &quot;handrail&quot; technique along linear features</li>
                 <li>Never rely solely on electronic navigation devices</li>
                 <li>Keep track of your elevation changes</li>
               </ul>

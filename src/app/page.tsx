@@ -11,7 +11,6 @@ import {
   WeatherIcon, 
   MedicalIcon,
   MapIcon,
-  MountainIcon,
   LeafIcon,
   FishIcon
 } from "./components/Icons";

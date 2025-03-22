@@ -1,90 +1,69 @@
 import Link from "next/link";
 import Navigation from "./components/Navigation";
-
-const TreeIcon = () => (
-  <svg className="w-12 h-12 icon-outdoors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M12 3L4 15h4v6h8v-6h4L12 3z" />
-  </svg>
-);
-
-const FireIcon = () => (
-  <svg className="w-12 h-12 icon-outdoors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    {/* Bottom log */}
-    <path d="M6 18c0 0 3 1 6 1s6-1 6-1" />
-    {/* Top log */}
-    <path d="M6 14c0 0 3 1 6 1s6-1 6-1" />
-    {/* Flames */}
-    <path d="M12 4c-2 3-3 5-3 7 0 1.6 1.3 3 3 3s3-1.4 3-3c0-2-1-4-3-7z" />
-    <path d="M12 6c-1.5 2-2 3.5-2 5 0 1.1 0.9 2 2 2s2-0.9 2-2c0-1.5-0.5-3-2-5z" />
-  </svg>
-);
-
-const CompassIcon = () => (
-  <svg className="w-12 h-12 icon-outdoors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
-  </svg>
-);
-
-const BellIcon = () => (
-  <svg className="w-12 h-12 icon-outdoors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-  </svg>
-);
-
-const CookingIcon = () => (
-  <svg className="w-12 h-12 icon-outdoors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    {/* Main pot body */}
-    <path d="M6 8h12v8H6z" />
-    {/* Lid */}
-    <path d="M5 8c0-1 1-2 2-2h10c1 0 2 1 2 2" />
-    <path d="M5 8h14" />
-    {/* Lid handle */}
-    <path d="M11 4h2v2h-2z" />
-    {/* Pot legs */}
-    <path d="M7 16v2M17 16v2M12 16v2" />
-    {/* Side handles */}
-    <path d="M4 10h2M18 10h2" />
-  </svg>
-);
+import { 
+  TreeIcon, 
+  FireIcon, 
+  CompassIcon, 
+  BellIcon, 
+  CookingIcon, 
+  KnotIcon, 
+  TentIcon, 
+  WeatherIcon, 
+  MedicalIcon,
+  MapIcon,
+  MountainIcon,
+  LeafIcon,
+  FishIcon
+} from "./components/Icons";
 
 export default function Home() {
   return (
     <div className="min-h-screen nature-bg">
       <Navigation />
       
-      <main className="container mx-auto p-4">
+      <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <section className="hero-section text-center py-16 mb-12 px-4">
-          <h1 className="text-5xl font-bold mb-6">Master Essential Camping Skills</h1>
+        <section className="hero-section text-center py-16 mb-12 px-6 mx-auto max-w-6xl">
+          <span className="accent-text text-xl mb-2 block">Explore • Learn • Adventure</span>
+          <h1 className="text-5xl font-bold mb-6">Master Your Outdoor Skills</h1>
           <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto">
-            Learn everything from knot tying to campfire cooking with our comprehensive guides
+            From essential knots to campfire cooking, learn practical skills for your next outdoor adventure
           </p>
-          <div className="flex justify-center space-x-12 mb-8">
-            <TreeIcon />
-            <FireIcon />
-            <CompassIcon />
+          <div className="flex justify-center space-x-8 mb-10">
+            <div className="flex flex-col items-center">
+              <TreeIcon />
+              <span className="mt-2 font-medium">Shelters</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <FireIcon />
+              <span className="mt-2 font-medium">Fire Skills</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <CompassIcon />
+              <span className="mt-2 font-medium">Navigation</span>
+            </div>
           </div>
-          <button className="btn-woodsman">
-            Start Your Adventure
-          </button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="btn-woodsman">
+              Start Learning
+            </button>
+            <button className="btn-secondary">
+              Join Community
+            </button>
+          </div>
         </section>
 
         {/* Featured Skills Grid */}
-        <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-4">
-          <Link href="/knots" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <svg className="w-8 h-8 icon-outdoors mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M8 6c0 2 2 2 4 2s4 0 4 2-2 2-4 2-4 0-4 2 2 2 4 2 4 0 4 2" />
-                  <path d="M12 4v2M12 18v2" />
-                </svg>
-                <h2 className="text-2xl font-semibold">Essential Knots</h2>
+        <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-4 mb-16 max-w-6xl mx-auto">
+          <Link href="/knots" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <KnotIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Essential Knots</h2>
               </div>
-              <p className="text-gray-600 mb-6">Master crucial knots for camping and survival situations.</p>
+              <p className="text-gray-600 mb-6">Master crucial knots that will serve you well in any camping or survival situation.</p>
               <span className="link-outdoors inline-flex items-center">
-                Learn more 
+                Explore knots 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -92,15 +71,15 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/fire" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <FireIcon />
-                <h2 className="text-2xl font-semibold ml-3">Fire Skills</h2>
+          <Link href="/fire" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <FireIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Fire Making</h2>
               </div>
-              <p className="text-gray-600 mb-6">Master the art of fire building and maintenance in any condition.</p>
+              <p className="text-gray-600 mb-6">Learn fire-starting techniques that work even in challenging weather conditions.</p>
               <span className="link-outdoors inline-flex items-center">
-                Learn more 
+                Master fire skills 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -108,17 +87,15 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/tarp-setups" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <svg className="w-8 h-8 icon-outdoors mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 20h16M4 20l8-16 8 16"/>
-                </svg>
-                <h2 className="text-2xl font-semibold">Tarp Setups</h2>
+          <Link href="/tarp-setups" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <TentIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Tarp Shelters</h2>
               </div>
-              <p className="text-gray-600 mb-6">Different configurations for shelter and protection.</p>
+              <p className="text-gray-600 mb-6">Discover versatile tarp configurations for shelter and protection in the wilderness.</p>
               <span className="link-outdoors inline-flex items-center">
-                Learn more 
+                Explore setups 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -126,15 +103,15 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/campfire-cooking" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <CookingIcon />
-                <h2 className="text-2xl font-semibold ml-3">Campfire Cooking</h2>
+          <Link href="/campfire-cooking" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <CookingIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Outdoor Cooking</h2>
               </div>
-              <p className="text-gray-600 mb-6">Delicious recipes and cooking techniques for the outdoors.</p>
+              <p className="text-gray-600 mb-6">Create delicious meals with minimal equipment using these campfire cooking techniques.</p>
               <span className="link-outdoors inline-flex items-center">
-                Learn more 
+                Discover recipes 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -142,20 +119,15 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/weather" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <svg className="w-8 h-8 icon-outdoors mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  {/* Sun center */}
-                  <circle cx="12" cy="12" r="4" />
-                  {/* Sun rays */}
-                  <path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M6.3 17.7l2.1-2.1M15.6 8.4l2.1-2.1" />
-                </svg>
-                <h2 className="text-2xl font-semibold">Weather Forecast</h2>
+          <Link href="/weather" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <WeatherIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Weather Skills</h2>
               </div>
-              <p className="text-gray-600 mb-6">Stay prepared with accurate weather predictions.</p>
+              <p className="text-gray-600 mb-6">Learn to predict weather changes by observing natural signs in your environment.</p>
               <span className="link-outdoors inline-flex items-center">
-                Learn more 
+                Read the skies 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -163,18 +135,15 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/sos" className="block transform transition-all duration-300 hover:scale-105">
-            <div className="card-outdoors p-8">
-              <div className="flex items-center mb-6">
-                <svg className="w-8 h-8 icon-outdoors mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="6" y="6" width="12" height="12" fill="#ef4444" />
-                  <path d="M12 8v8M8 12h8" stroke="white" strokeWidth="2" />
-                </svg>
-                <h2 className="text-2xl font-semibold">SOS Guide</h2>
+          <Link href="/sos" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <MedicalIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Emergency Guide</h2>
               </div>
-              <p className="text-gray-600 mb-6">Emergency procedures and survival techniques.</p>
-              <span className="link-outdoors inline-flex items-center">
-                Learn more 
+              <p className="text-gray-600 mb-6">Essential wilderness first aid, survival procedures, and emergency response techniques for outdoor situations.</p>
+              <span className="link-outdoors inline-flex items-center text-sunset-orange">
+                Safety guide 
                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -182,15 +151,126 @@ export default function Home() {
             </div>
           </Link>
 
-          <div className="card-outdoors p-8 bg-gradient-to-br from-pine-dark to-pine-light text-white transform transition-all duration-300 hover:scale-105">
-            <div className="flex items-center mb-6">
-              <BellIcon />
-              <h2 className="text-2xl font-semibold ml-3">Daily Tips</h2>
+          <Link href="/foraging" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <LeafIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Foraging & Plants</h2>
+              </div>
+              <p className="text-gray-600 mb-6">Identify edible plants and learn safe foraging practices for wilderness nutrition.</p>
+              <span className="link-outdoors inline-flex items-center">
+                Discover plants 
+                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
             </div>
-            <p className="mb-6">Get daily camping and survival tips delivered to you.</p>
-            <button className="btn-woodsman bg-white/20 hover:bg-white/30 text-white border-white/30">
-              Subscribe Now
-            </button>
+          </Link>
+
+          <Link href="/navigation" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <MapIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Navigation Skills</h2>
+              </div>
+              <p className="text-gray-600 mb-6">Master compass use, map reading, terrain navigation, and natural wayfinding methods.</p>
+              <span className="link-outdoors inline-flex items-center">
+                Find your way 
+                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </Link>
+
+          <Link href="/water-purification" className="block transform transition-all duration-300 hover:scale-102">
+            <div className="card-outdoors p-8 h-full">
+              <div className="flex items-center mb-5">
+                <FishIcon size={42} />
+                <h2 className="text-2xl font-semibold ml-3">Water Purification</h2>
+              </div>
+              <p className="text-gray-600 mb-6">Learn essential techniques for finding and purifying water in wilderness settings.</p>
+              <span className="link-outdoors inline-flex items-center">
+                Clean water guides
+                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </section>
+
+        {/* Featured showcase */}
+        <section className="max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-7 gap-6">
+            <div className="md:col-span-3 card-outdoors p-8">
+              <h2 className="text-2xl font-bold mb-4">Ready for Adventure?</h2>
+              <p className="text-gray-600 mb-6">
+                Join our community of outdoor enthusiasts and gain access to exclusive guides, expert tips, and connect with fellow adventurers.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-forest-green-medium mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Exclusive video tutorials</span>
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-forest-green-medium mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Monthly challenges & badges</span>
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-forest-green-medium mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Printable field guides</span>
+                </div>
+              </div>
+              <button className="btn-accent">
+                Join Now
+              </button>
+            </div>
+            <div className="md:col-span-4 card-outdoors p-0 overflow-hidden">
+              <div className="h-full relative bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')"}}>
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                  <div className="accent-text mb-1">Featured Skill</div>
+                  <h3 className="text-xl font-bold mb-2">Wilderness Navigation</h3>
+                  <p className="text-white/90 text-sm mb-3">Learn to find your way using the stars, natural landmarks, and more.</p>
+                  <button className="text-white font-semibold flex items-center text-sm">
+                    Learn More
+                    <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Newsletter */}
+        <section className="max-w-6xl mx-auto mb-12">
+          <div className="card-outdoors p-10 text-center shadow-lg border-t-4 border-sunset-orange">
+            <div className="flex justify-center mb-6">
+              <BellIcon color="#FF7F50" size={48} />
+            </div>
+            <h2 className="text-3xl font-bold mb-4 text-pine-dark">Get Outdoor Tips & Tricks</h2>
+            <p className="mb-8 max-w-xl mx-auto text-gray-700 text-lg">
+              Join our newsletter for weekly camping tips, seasonal guides, and exclusive outdoor skills content.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                className="px-4 py-3 rounded-lg flex-grow bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sunset-orange"
+                aria-label="Email address for newsletter subscription"
+              />
+              <button className="px-6 py-3 bg-earth-dark hover:bg-earth-dark/90 text-white font-bold rounded-lg transition-all duration-200 shadow-lg border-2 border-sunset-orange">
+                Subscribe
+              </button>
+            </div>
           </div>
         </section>
       </main>

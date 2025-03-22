@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@phosphor-icons/react": "^2.1.7",
     "daisyui": "^5.0.6",
     "next": "15.2.3",
     "react": "^19.0.0",

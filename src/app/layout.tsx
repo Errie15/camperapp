@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
-import { Cabin } from "next/font/google";
+import { Roboto, Montserrat, Pacifico } from "next/font/google";
 import "./globals.css";
 
-const cabin = Cabin({
+const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-cabin",
+  weight: ["400", "500", "700"],
+  variable: "--font-roboto",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pacifico",
   display: "swap",
 });
 
@@ -20,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cabin.variable}>
+    <html lang="en" className={`${roboto.variable} ${montserrat.variable} ${pacifico.variable}`}>
       <body className="antialiased">
         {children}
       </body>

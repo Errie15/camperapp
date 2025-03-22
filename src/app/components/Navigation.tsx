@@ -1,13 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-
-const CompassIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
-  </svg>
-);
+import { CompassIcon } from '../components/Icons';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,19 +9,19 @@ export default function Navigation() {
   return (
     <nav className="nav-woodsman sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           <Link 
             href="/" 
-            className="flex items-center space-x-3 text-2xl font-bold text-white hover:text-moss-light transition-colors"
+            className="flex items-center space-x-3 text-2xl font-bold text-white hover:text-sky-blue transition-colors"
           >
-            <CompassIcon />
+            <CompassIcon size={32} color="#FFFFFF" />
             <span className="font-display tracking-wide">CampSkills</span>
           </Link>
           
           {/* Mobile menu button */}
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden text-white hover:text-moss-light transition-colors"
+            className="md:hidden text-white hover:text-sky-blue transition-colors"
             aria-label="Toggle menu"
           >
             <span className="sr-only">Open menu</span>
@@ -48,40 +42,58 @@ export default function Navigation() {
           </button>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-3">
             <Link 
               href="/knots" 
-              className="text-white hover:text-moss-light px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
             >
               Knots
             </Link>
             <Link 
               href="/fire" 
-              className="text-white hover:text-moss-light px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
             >
               Fire Skills
             </Link>
             <Link 
               href="/tarp-setups" 
-              className="text-white hover:text-moss-light px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
             >
               Tarp Setups
             </Link>
             <Link 
               href="/campfire-cooking" 
-              className="text-white hover:text-moss-light px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
             >
-              Campfire Cooking
+              Cooking
             </Link>
             <Link 
               href="/weather" 
-              className="text-white hover:text-moss-light px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
             >
               Weather
             </Link>
             <Link 
+              href="/navigation" 
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+            >
+              Navigation
+            </Link>
+            <Link 
+              href="/foraging" 
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+            >
+              Foraging
+            </Link>
+            <Link 
+              href="/water-purification" 
+              className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
+            >
+              Water
+            </Link>
+            <Link 
               href="/sos" 
-              className="text-white bg-sunset-orange hover:bg-red-600 px-4 py-2 rounded-lg transition-all duration-200"
+              className="text-white bg-sunset-orange hover:bg-sunset-orange/90 px-4 py-2 rounded-lg transition-all duration-200"
             >
               SOS
             </Link>
@@ -94,45 +106,66 @@ export default function Navigation() {
             isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           } overflow-hidden`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-2">
+          <div className="px-2 pt-2 pb-3 space-y-1">
             <Link 
               href="/knots" 
-              className="block text-white hover:text-moss-light px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
               Knots
             </Link>
             <Link 
               href="/fire" 
-              className="block text-white hover:text-moss-light px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
               Fire Skills
             </Link>
             <Link 
               href="/tarp-setups" 
-              className="block text-white hover:text-moss-light px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
               Tarp Setups
             </Link>
             <Link 
               href="/campfire-cooking" 
-              className="block text-white hover:text-moss-light px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
-              Campfire Cooking
+              Cooking
             </Link>
             <Link 
               href="/weather" 
-              className="block text-white hover:text-moss-light px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
               Weather
             </Link>
             <Link 
+              href="/navigation" 
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              onClick={() => setIsOpen(false)}
+            >
+              Navigation
+            </Link>
+            <Link 
+              href="/foraging" 
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              onClick={() => setIsOpen(false)}
+            >
+              Foraging
+            </Link>
+            <Link 
+              href="/water-purification" 
+              className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"
+              onClick={() => setIsOpen(false)}
+            >
+              Water
+            </Link>
+            <Link 
               href="/sos" 
-              className="block text-white bg-sunset-orange hover:bg-red-600 px-4 py-3 rounded-lg transition-all duration-200"
+              className="block text-white bg-sunset-orange hover:bg-sunset-orange/90 px-4 py-3 rounded-lg transition-all duration-200"
               onClick={() => setIsOpen(false)}
             >
               SOS

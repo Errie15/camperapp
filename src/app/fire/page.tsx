@@ -11,6 +11,7 @@ interface FireTechnique {
   tips: string[];
   materials: string[];
   safetyNotes: string[];
+  image?: string;
 }
 
 const fireTechniques: FireTechnique[] = [
@@ -43,7 +44,8 @@ const fireTechniques: FireTechnique[] = [
       "Keep water or dirt nearby for emergency extinguishing",
       "Never leave a fire unattended",
       "Check local fire regulations and restrictions"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1475738972911-5b44ce979166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Wet Weather Fire Starting",
@@ -75,7 +77,8 @@ const fireTechniques: FireTechnique[] = [
       "Ensure proper ventilation in wet conditions",
       "Monitor surrounding areas for steam and smoke",
       "Have multiple fire starting methods available"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1513031300226-c8fb12de9abe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "DIY Fire Starters",
@@ -107,7 +110,8 @@ const fireTechniques: FireTechnique[] = [
       "Keep away from open flames while preparing",
       "Store away from heat sources",
       "Label containers clearly as flammable"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1603906210252-4db0c8d51d67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -176,6 +180,15 @@ export default function FirePage() {
                 className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
                 onClick={() => setSelectedTechnique(technique)}
               >
+                {technique.image && (
+                  <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                    <img 
+                      src={technique.image} 
+                      alt={technique.name} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                )}
                 <h3 className="text-2xl font-semibold mb-4 text-gray-900">{technique.name}</h3>
                 <div className="mb-4">
                   <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
@@ -244,6 +257,12 @@ export default function FirePage() {
                   ✕
                 </button>
               </div>
+              
+              {selectedTechnique.image && (
+                <div className="mb-6">
+                  <img src={selectedTechnique.image} alt={selectedTechnique.name} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
               
               <div className="space-y-6">
                 <div>

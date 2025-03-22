@@ -9,6 +9,7 @@ interface EmergencyTip {
   steps: string[];
   equipment: string[];
   warnings: string[];
+  image?: string;
 }
 
 const emergencyTips: EmergencyTip[] = [
@@ -33,7 +34,62 @@ const emergencyTips: EmergencyTip[] = [
       "Don't move victim if spinal injury suspected",
       "Wear protective gloves when treating wounds",
       "Know your limits - don't exceed your training"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    category: "Medical",
+    title: "Wilderness First Aid",
+    description: "Medical care techniques when you're far from help",
+    steps: [
+      "Assess the situation and ensure your safety",
+      "Check victim's ABCs (Airway, Breathing, Circulation)",
+      "Treat life-threatening conditions first",
+      "Stabilize injuries with available materials",
+      "Document symptoms and treatment times",
+      "Plan evacuation if necessary"
+    ],
+    equipment: [
+      "Comprehensive first aid kit",
+      "SAM splints or improvised splinting materials",
+      "Trauma shears",
+      "Irrigation syringe for wound cleaning",
+      "Emergency pressure bandages"
+    ],
+    warnings: [
+      "Never attempt procedures beyond your training",
+      "Be aware of the 'golden hour' for severe trauma",
+      "Hypothermia can develop even in mild conditions",
+      "Monitor for shock symptoms continuously"
+    ],
+    image: "https://images.unsplash.com/photo-1560178404-f9c34ce54584?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    category: "Medical",
+    title: "Treating Hypothermia",
+    description: "Recognizing and treating dangerous body temperature drops",
+    steps: [
+      "Get the person out of cold/wet environment",
+      "Remove wet clothing",
+      "Warm the core first (not extremities)",
+      "Use skin-to-skin contact in a sleeping bag",
+      "Give warm, sweet drinks if conscious",
+      "Monitor breathing and consciousness"
+    ],
+    equipment: [
+      "Emergency blankets",
+      "Dry clothing",
+      "Sleeping bag",
+      "Hot water bottles (if available)",
+      "Chemical heat packs"
+    ],
+    warnings: [
+      "Don't give alcohol - it worsens hypothermia",
+      "Don't rub or massage extremities",
+      "Be gentle - rough handling can cause cardiac arrest",
+      "Severe hypothermia requires professional medical care"
+    ],
+    image: "https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     category: "Navigation",
@@ -56,7 +112,8 @@ const emergencyTips: EmergencyTip[] = [
       "Don't panic and run",
       "Avoid splitting up the group",
       "Don't waste phone battery on non-emergency calls"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1510797215324-95aa89f43c33?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     category: "Weather",
@@ -79,7 +136,8 @@ const emergencyTips: EmergencyTip[] = [
       "Avoid high ground during lightning",
       "Don't shelter under tall trees",
       "Beware of flash flood areas"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1527482797697-8795b05a13fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -128,6 +186,15 @@ export default function SOSPage() {
               className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
               onClick={() => setSelectedTip(tip)}
             >
+              {tip.image && (
+                <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                  <img 
+                    src={tip.image} 
+                    alt={tip.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              )}
               <div className="flex items-center mb-4">
                 <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
                   {tip.category}
@@ -197,6 +264,12 @@ export default function SOSPage() {
                 </button>
               </div>
               
+              {selectedTip.image && (
+                <div className="mb-6">
+                  <img src={selectedTip.image} alt={selectedTip.title} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
+
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2 text-gray-800">Description</h3>

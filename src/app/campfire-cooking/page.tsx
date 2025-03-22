@@ -9,6 +9,7 @@ interface Recipe {
   ingredients: string[];
   instructions: string[];
   tips: string[];
+  image?: string;
 }
 
 const recipes: Recipe[] = [
@@ -34,7 +35,8 @@ const recipes: Recipe[] = [
       "Double-wrap to prevent leaks",
       "Turn packet every 10 minutes",
       "Check doneness before serving"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1536064692660-84ba205a5aaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Dutch Oven Stew",
@@ -58,7 +60,8 @@ const recipes: Recipe[] = [
       "Use the right coal placement",
       "Maintain steady temperature",
       "Check liquid levels periodically"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1621861585080-bf9b1d3165bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Campfire Pizza",
@@ -82,7 +85,8 @@ const recipes: Recipe[] = [
       "Pre-cook certain toppings",
       "Watch bottom doesn't burn",
       "Use a pizza stone if available"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1530053969600-caed2596d242?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -132,6 +136,15 @@ export default function CampfireCookingPage() {
               className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
               onClick={() => setSelectedRecipe(recipe)}
             >
+              {recipe.image && (
+                <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                  <img 
+                    src={recipe.image} 
+                    alt={recipe.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              )}
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">{recipe.name}</h3>
               <div className="mb-4">
                 <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
@@ -195,6 +208,12 @@ export default function CampfireCookingPage() {
                 </button>
               </div>
               
+              {selectedRecipe.image && (
+                <div className="mb-6">
+                  <img src={selectedRecipe.image} alt={selectedRecipe.name} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
+
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2 text-gray-800">Difficulty & Time</h3>

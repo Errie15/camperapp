@@ -14,6 +14,7 @@ interface TarpSetup {
     wind: number;
     snow: number;
   };
+  image?: string;
 }
 
 const tarpSetups: TarpSetup[] = [
@@ -50,7 +51,8 @@ const tarpSetups: TarpSetup[] = [
       rain: 4,
       wind: 3,
       snow: 3
-    }
+    },
+    image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Lean-To Shelter",
@@ -85,7 +87,8 @@ const tarpSetups: TarpSetup[] = [
       rain: 3,
       wind: 2,
       snow: 2
-    }
+    },
+    image: "https://images.unsplash.com/photo-1597181344289-97fcafe34218?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Diamond Shelter",
@@ -120,7 +123,8 @@ const tarpSetups: TarpSetup[] = [
       rain: 4,
       wind: 4,
       snow: 3
-    }
+    },
+    image: "https://images.unsplash.com/photo-1628628722350-dea3f1c3bb28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -185,6 +189,15 @@ export default function TarpSetupsPage() {
               className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
               onClick={() => setSelectedSetup(setup)}
             >
+              {setup.image && (
+                <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                  <img 
+                    src={setup.image} 
+                    alt={setup.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              )}
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">{setup.name}</h3>
               <div className="mb-4">
                 <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
@@ -263,6 +276,12 @@ export default function TarpSetupsPage() {
                 </button>
               </div>
               
+              {selectedSetup.image && (
+                <div className="mb-6">
+                  <img src={selectedSetup.image} alt={selectedSetup.name} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
+
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2 text-gray-800">Best For</h3>

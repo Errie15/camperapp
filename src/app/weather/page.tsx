@@ -7,6 +7,7 @@ interface WeatherTip {
   description: string;
   campingAdvice: string;
   safetyTips: string[];
+  image?: string;
 }
 
 const weatherTips: WeatherTip[] = [
@@ -18,7 +19,8 @@ const weatherTips: WeatherTip[] = [
       "Still bring rain gear as backup",
       "Watch for sudden weather changes",
       "Set up sun protection during day"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     condition: "Partly Cloudy",
@@ -28,7 +30,8 @@ const weatherTips: WeatherTip[] = [
       "Monitor cloud patterns",
       "Have rain gear accessible",
       "Check weather updates regularly"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1495490311930-678c8ecdd120?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     condition: "Rain Likely",
@@ -38,7 +41,8 @@ const weatherTips: WeatherTip[] = [
       "Set up proper drainage around tent",
       "Keep equipment dry and protected",
       "Know flash flood risks in your area"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -88,6 +92,15 @@ export default function WeatherPage() {
               className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
               onClick={() => setSelectedTip(tip)}
             >
+              {tip.image && (
+                <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                  <img 
+                    src={tip.image} 
+                    alt={tip.condition} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              )}
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">{tip.condition}</h3>
               <p className="text-gray-800 mb-6">{tip.description}</p>
               <span className="link-outdoors inline-flex items-center text-green-700 hover:text-green-800 font-medium">
@@ -127,6 +140,12 @@ export default function WeatherPage() {
                 </button>
               </div>
               
+              {selectedTip.image && (
+                <div className="mb-6">
+                  <img src={selectedTip.image} alt={selectedTip.condition} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
+
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-2 text-gray-800">Description</h3>

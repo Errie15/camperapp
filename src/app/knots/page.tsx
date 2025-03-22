@@ -11,6 +11,7 @@ interface Knot {
   steps: string[];
   tips: string[];
   materials: string[];
+  image?: string;
 }
 
 const knots: Knot[] = [
@@ -41,7 +42,8 @@ const knots: Knot[] = [
     materials: [
       "Single rope length",
       "Optional: practice post or ring"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1519326336220-db2aa0ceeef8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Figure 8 Follow Through",
@@ -70,7 +72,8 @@ const knots: Knot[] = [
     materials: [
       "Climbing rope",
       "Climbing harness or anchor point"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1522163182402-834f871fd851?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     name: "Taut Line Hitch",
@@ -99,7 +102,8 @@ const knots: Knot[] = [
     materials: [
       "Rope or cord",
       "Tent stake or anchor point"
-    ]
+    ],
+    image: "https://images.unsplash.com/photo-1504057097259-7e6a97633aa7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -168,6 +172,15 @@ export default function KnotsPage() {
                 className="card-outdoors p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 bg-white bg-opacity-95"
                 onClick={() => setSelectedKnot(knot)}
               >
+                {knot.image && (
+                  <div className="h-48 overflow-hidden mb-4 -mt-2 -mx-2 rounded-t-lg">
+                    <img 
+                      src={knot.image} 
+                      alt={knot.name} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                )}
                 <h3 className="text-2xl font-semibold mb-4 text-gray-900">{knot.name}</h3>
                 <div className="mb-4">
                   <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
@@ -236,6 +249,12 @@ export default function KnotsPage() {
                   ✕
                 </button>
               </div>
+              
+              {selectedKnot.image && (
+                <div className="mb-6">
+                  <img src={selectedKnot.image} alt={selectedKnot.name} className="rounded-lg w-full h-64 object-cover" />
+                </div>
+              )}
               
               <div className="space-y-6">
                 <div>

@@ -16,7 +16,8 @@ import {
   Bug,
   Fish,
   Planet,
-  Leaf
+  Leaf,
+  Backpack
 } from "@phosphor-icons/react";
 
 // Color constants to ensure consistency
@@ -168,6 +169,15 @@ export const PlanetIcon = ({ className, size, color, weight }: IconProps) => (
 
 export const LeafIcon = ({ className, size, color, weight }: IconProps) => (
   <Leaf
+    className={className} 
+    size={size || defaultProps.size}
+    color={color || COLORS.forestGreen}
+    weight={weight || defaultProps.weight}
+  />
+);
+
+export const BackpackIcon = ({ className, size, color, weight }: IconProps) => (
+  <Backpack
     className={className} 
     size={size || defaultProps.size}
     color={color || COLORS.forestGreen}

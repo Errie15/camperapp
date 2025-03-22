@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { CompassIcon } from '../components/Icons';
+import { CompassIcon, BackpackIcon } from '../components/Icons';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +43,13 @@ export default function Navigation() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-3">
+            <Link 
+              href="/adventure-planner" 
+              className="text-white bg-forest-green-medium hover:bg-forest-green-dark px-4 py-2 rounded-lg transition-all duration-200 flex items-center"
+            >
+              <BackpackIcon size={20} color="#FFFFFF" />
+              <span className="ml-2">Adventure Planner</span>
+            </Link>
             <Link 
               href="/knots" 
               className="text-white hover:text-sky-blue px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10"
@@ -107,6 +114,14 @@ export default function Navigation() {
           } overflow-hidden`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link 
+              href="/adventure-planner" 
+              className="block text-white bg-forest-green-medium px-4 py-3 rounded-lg transition-all duration-200 flex items-center"
+              onClick={() => setIsOpen(false)}
+            >
+              <BackpackIcon size={20} color="#FFFFFF" />
+              <span className="ml-2">Adventure Planner</span>
+            </Link>
             <Link 
               href="/knots" 
               className="block text-white hover:text-sky-blue px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/10"

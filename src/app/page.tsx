@@ -43,7 +43,12 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="btn-woodsman">
+            <Link href="/adventure-planner">
+              <button className="btn-woodsman">
+                Start an Adventure
+              </button>
+            </Link>
+            <button className="btn-secondary">
               Start Learning
             </button>
             <button className="btn-secondary">
